@@ -1,0 +1,6 @@
+/work/07673/harrijin/stampede2/mainclassrepo/OpenFOAM/current/cavity/cavity
+Sat Feb 19 13:42:58 CST 2022
+Running blockMesh on /work/07673/harrijin/stampede2/mainclassrepo/OpenFOAM/current/cavity/cavity
+Running checkMesh on /work/07673/harrijin/stampede2/mainclassrepo/OpenFOAM/current/cavity/cavity
+Running icoFoam on /work/07673/harrijin/stampede2/mainclassrepo/OpenFOAM/current/cavity/cavity
+Sat Feb 19 13:49:41 CST 2022

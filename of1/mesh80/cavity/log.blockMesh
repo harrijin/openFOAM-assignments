@@ -1,0 +1,71 @@
+/*---------------------------------------------------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+Build  : 7-49b2b3b8b082
+Exec   : blockMesh
+Date   : Feb 19 2022
+Time   : 13:38:45
+Host   : "c410-092.stampede2.tacc.utexas.edu"
+PID    : 66967
+I/O    : uncollated
+Case   : /work2/07673/harrijin/stampede2/mainclassrepo/OpenFOAM/v7/cavity/cavity
+nProcs : 1
+sigFpe : Enabling floating point exception trapping (FOAM_SIGFPE).
+fileModificationChecking : Monitoring run-time modified files using timeStampMaster (fileModificationSkew 10)
+allowSystemOperations : Allowing user-supplied system call operations
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Create time
+
+Creating block mesh from
+    "/work2/07673/harrijin/stampede2/mainclassrepo/OpenFOAM/v7/cavity/cavity/system/blockMeshDict"
+Creating block edges
+No non-planar block faces defined
+Creating topology blocks
+Creating topology patches
+
+Creating block mesh topology
+
+Check topology
+
+	Basic statistics
+		Number of internal faces : 0
+		Number of boundary faces : 6
+		Number of defined boundary faces : 6
+		Number of undefined boundary faces : 0
+	Checking patch -> block consistency
+
+Creating block offsets
+Creating merge list .
+
+Creating polyMesh from blockMesh
+Creating points with scale 0.1
+    Block 0 cell size :
+        i : 0.00125 .. 0.00125
+        j : 0.00125 .. 0.00125
+        k : 0.01
+Creating cells
+Creating patches
+
+Writing polyMesh
+----------------
+Mesh Information
+----------------
+  boundingBox: (0 0 0) (0.1 0.1 0.01)
+  nPoints: 13122
+  nCells: 6400
+  nFaces: 25760
+  nInternalFaces: 12640
+----------------
+Patches
+----------------
+  patch 0 (start: 12640 size: 80) name: movingWall
+  patch 1 (start: 12720 size: 240) name: fixedWalls
+  patch 2 (start: 12960 size: 12800) name: frontAndBack
+
+End
+
