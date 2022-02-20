@@ -20,7 +20,7 @@ libs            ("libsampling.so");
 
 interpolationScheme cell;
 
-fields          ( p U );
+fields          ( U );
 
 setFormat       raw;
 
@@ -30,8 +30,8 @@ sets
     {
         type    lineCell;
         axis    xyz;
-        start   ( 0 0 0);
-        end     ( 1 1 1);
+        start   ( 0.05 0.0 0.5e-2);
+        end     ( 0.05 0.1 0.5e-2);
     }
 );
 
