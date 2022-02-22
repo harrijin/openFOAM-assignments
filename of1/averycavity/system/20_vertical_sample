@@ -1,0 +1,191 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  6
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile 
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      sample;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+type sets;
+libs            ("libsampling.so");
+
+interpolationScheme cell;
+
+fields          ( U );
+
+setFormat       raw;
+
+sets
+(
+    below_top_lid_1
+    {
+        type    lineCell;
+        axis    xyz;
+        start   ( 0.001 -0.01 0.5e-2);
+        end     ( 0.001 0.11 0.5e-2);
+    }
+
+    below_top_lid_2
+    {
+        type    lineCell;
+        axis    xyz;
+        start   ( 0.006 -0.01 0.5e-2);
+        end     ( 0.006 0.11 0.5e-2);
+    }
+
+    below_top_lid_3
+    {
+        type    lineCell;
+        axis    xyz;
+        start   ( 0.011 -0.01 0.5e-2);
+        end     ( 0.011 0.11 0.5e-2);
+    }
+
+    below_top_lid_4
+    {
+        type    lineCell;
+        axis    xyz;
+        start   ( 0.016 -0.01 0.5e-2);
+        end     ( 0.016 0.11 0.5e-2);
+    }
+
+    below_top_lid_5
+    {
+        type    lineCell;
+        axis    xyz;
+        start   ( 0.021 -0.01 0.5e-2);
+        end     ( 0.021 0.11 0.5e-2);
+    }
+
+    below_top_lid_6
+    {
+        type    lineCell;
+        axis    xyz;
+        start   ( 0.026 -0.01 0.5e-2);
+        end     ( 0.026 0.11 0.5e-2);
+    }
+
+    below_top_lid_7
+    {
+        type    lineCell;
+        axis    xyz;
+        start   ( 0.031 -0.01 0.5e-2);
+        end     ( 0.031 0.11 0.5e-2);
+    }
+
+    below_top_lid_8
+    {
+        type    lineCell;
+        axis    xyz;
+        start   ( 0.036 -0.01 0.5e-2);
+        end     ( 0.036 0.11 0.5e-2);
+    }
+
+    below_top_lid_9
+    {
+        type    lineCell;
+        axis    xyz;
+        start   ( 0.041 -0.01 0.5e-2);
+        end     ( 0.041 0.11 0.5e-2);
+    }
+
+    below_top_lid_10
+    {
+        type    lineCell;
+        axis    xyz;
+        start   ( 0.046 -0.01 0.5e-2);
+        end     ( 0.046 0.11 0.5e-2);
+    }
+
+    below_top_lid_11
+    {
+        type    lineCell;
+        axis    xyz;
+        start   ( 0.051 -0.01 0.5e-2);
+        end     ( 0.051 0.11 0.5e-2);
+    }
+
+    below_top_lid_12
+    {
+        type    lineCell;
+        axis    xyz;
+        start   ( 0.056 -0.01 0.5e-2);
+        end     ( 0.056 0.11 0.5e-2);
+    }
+
+    below_top_lid_13
+    {
+        type    lineCell;
+        axis    xyz;
+        start   ( 0.061 -0.01 0.5e-2);
+        end     ( 0.061 0.11 0.5e-2);
+    }
+
+    below_top_lid_14
+    {
+        type    lineCell;
+        axis    xyz;
+        start   ( 0.066 -0.01 0.5e-2);
+        end     ( 0.066 0.11 0.5e-2);
+    }
+
+    below_top_lid_15
+    {
+        type    lineCell;
+        axis    xyz;
+        start   ( 0.071 -0.01 0.5e-2);
+        end     ( 0.071 0.11 0.5e-2);
+    }
+
+    below_top_lid_16
+    {
+        type    lineCell;
+        axis    xyz;
+        start   ( 0.076 -0.01 0.5e-2);
+        end     ( 0.076 0.11 0.5e-2);
+    }
+
+    below_top_lid_17
+    {
+        type    lineCell;
+        axis    xyz;
+        start   ( 0.081 -0.01 0.5e-2);
+        end     ( 0.081 0.11 0.5e-2);
+    }
+
+    below_top_lid_18
+    {
+        type    lineCell;
+        axis    xyz;
+        start   ( 0.086 -0.01 0.5e-2);
+        end     ( 0.086 0.11 0.5e-2);
+    }
+
+    below_top_lid_19
+    {
+        type    lineCell;
+        axis    xyz;
+        start   ( 0.091 -0.01 0.5e-2);
+        end     ( 0.091 0.11 0.5e-2);
+    }
+
+    below_top_lid_20
+    {
+        type    lineCell;
+        axis    xyz;
+        start   ( 0.099 -0.01 0.5e-2);
+        end     ( 0.099 0.11 0.5e-2);
+    }
+);
+
+
+// ************************************************************************* //
