@@ -182,7 +182,10 @@ boundary
 		wake_grading_x = 4
 		for i in range(20):
 			if i < 8: # radial blocks
-				vertices = [i, i+8, i+9, i+1]
+				if i+1 < 8:
+					vertices = [i, i+8, i+9, i+1]
+				else:
+					vertices = [i, i+8, i+1, i-7]
 				num_cells = [n_radial, n_tangential, n_z]
 				grading = [radial_grading, tangential_grading, z_grading]
 			else: # outer blocks
@@ -194,11 +197,15 @@ boundary
 						vertices = [9, 17, 18, 19]
 					else: # i == 18
 						vertices = [15, 31, 30, 29]
+						# Convert to right-handed system
+						vertices = [vertex+self.z_offset for vertex in vertices]
 				elif i == 12 or i == 15: # front corners
 					num_cells = [n_front_corners_x, n_corner_blocks_y, n_z]
 					grading = [front_grading_x, corners_y_grading, z_grading]
 					if i == 12:
 						vertices = [11, 23, 22, 21]
+						# Convert to right-handed system
+						vertices = [vertex+self.z_offset for vertex in vertices]
 					else: # i == 15
 						vertices = [13, 25, 26, 27]
 				else: # edge non-corner blocks
@@ -209,10 +216,14 @@ boundary
 						num_cells[0] = n_corner_blocks_y
 						if i == 10:
 							vertices = [10, 20, 19, 9]
+							# Convert to right-handed system
+							vertices = [vertex+self.z_offset for vertex in vertices]
 						elif i == 11:
 							vertices = [10, 20, 21, 11]
 						elif i == 16:
 							vertices = [14, 28, 27, 13]
+							# Convert to right-handed system
+							vertices = [vertex+self.z_offset for vertex in vertices]
 						else: # i == 17
 							vertices = [14, 28, 29, 15]
 					else: # "Horizontal" blocks
@@ -223,15 +234,23 @@ boundary
 								vertices = [8, 16, 17, 9]
 							else: # i == 19
 								vertices = [8, 16, 31, 15]
+								# Convert to right-handed system
+								vertices = [vertex+self.z_offset for vertex in vertices]
 						else:
 							grading[0] = front_grading_x
 							num_cells[0] = n_front_corners_x
 							if i == 13:
 								vertices = [12, 24, 23, 11]
+								# Convert to right-handed system
+								vertices = [vertex+self.z_offset for vertex in vertices]
 							else: # i == 14
 								vertices = [12, 24, 25, 13]
 			# Add second set of vertices
-			vertices.extend([vertex+self.z_offset for vertex in vertices])
+			if vertices[0] < 32:
+				vertices.extend([vertex+self.z_offset for vertex in vertices])
+			else:
+				vertices.extend([vertex-self.z_offset for vertex in vertices])
+				
 			b = Block(vertices, num_cells, grading, i)
 			self.blocks.append(b)
 	
