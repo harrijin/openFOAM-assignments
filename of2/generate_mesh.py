@@ -8,16 +8,27 @@ class Vertex:
 		self.index = index
 	
 	def print(self):
-		print("{}: {} {} {}".format(self.index, self.x, self.y, self.z))
+		print("\t({} {} {}) // {}".format(self.x, self.y, self.z, self.index))
 
 class Block:
-	def __init__(self, vertices, meshing, grading):
-		self.vertices = vertices
-		self.meshing = meshing
-		self.grading = grading
+	def __init__(self, vertices, meshing, grading, index):
+		self.vertices = [str(vertex) for vertex in vertices]
+		self.meshing = [str(mesh) for mesh in meshing]
+		self.grading = [str(grade) for grade in grading]
+		self.index = index
 	
 	def print(self):
-		print("hex {} {} simpleGrading {}".format(self.vertices, self.meshing, self.grading))
+		print("\t// block {}".format(self.index))
+		print("\thex ({}) ({}) simpleGrading ({})".format(" ".join(self.vertices), " ".join(self.meshing), " ".join(self.grading)))
+
+class Arc:
+	def __init__(self, begin_idx, end_idx, midpoint):
+		self.begin = begin_idx
+		self.end = end_idx
+		self.midpoint = [str(coord) for coord in midpoint]
+	
+	def print(self):
+		print("\tarc {} {} ({})".format(self.begin, self.end, " ".join(self.midpoint)))
 	
 class CylinderMesh:
 	def __init__(self, Lf, Lw, H, R):
@@ -27,7 +38,7 @@ class CylinderMesh:
 		self.R = R
 		self.vertices = list()
 		self.blocks = list()
-		self.edges = list()
+		self.arcs = list()
 		self.z_offset = 32
 		self.init_mesh()
 		
@@ -114,9 +125,19 @@ boundary
 				if k < 8:
 					x = 0.5*np.cos(k*np.pi/4)
 					y = 0.5*np.sin(k*np.pi/4)
+					arc_midpoint = [0.5*np.cos(k*np.pi/4 + np.pi/8), 0.5*np.sin(k*np.pi/4 + np.pi/8), z]
+					if k+1 < 8:
+						self.arcs.append(Arc(index, index+1, arc_midpoint))
+					else:
+						self.arcs.append(Arc(index, index-7, arc_midpoint))
 				elif k < 16:
 					x = (self.R)*np.cos(k*np.pi/4)
 					y = (self.R)*np.sin(k*np.pi/4)
+					arc_midpoint = [self.R*np.cos(k*np.pi/4 + np.pi/8),self.R*np.sin(k*np.pi/4 + np.pi/8), z]
+					if k+1 < 16:
+						self.arcs.append(Arc(index, index+1, arc_midpoint))
+					else:
+						self.arcs.append(Arc(index, index-7, arc_midpoint))
 				else:
 					if k < 19 or k > 29:
 						x = self.Lw
@@ -211,8 +232,48 @@ boundary
 								vertices = [12, 24, 25, 13]
 			# Add second set of vertices
 			vertices.extend([vertex+self.z_offset for vertex in vertices])
-			b = Block(vertices, num_cells, grading)
+			b = Block(vertices, num_cells, grading, i)
 			self.blocks.append(b)
+	
+	def print(self):
+		print(
+"""
+FoamFile
+{
+    version  2.0;
+    format   ascii;
+    class    dictionary;
+    object   blockMeshDict;
+}
+
+convertToMeters 1.0;
+
+vertices
+("""
+		)
+		for vertex in self.vertices:
+			vertex.print()
+		print(
+"""
+);
+
+blocks
+(
+"""
+		)
+		for block in self.blocks:
+			block.print()
+		print(
+"""
+);
+edges
+(
+"""
+		)
+		for arc in self.arcs:
+			arc.print()
+		print(");")
+		print(self.boundary_string)
 
 
 if __name__ == "__main__":
@@ -237,5 +298,7 @@ if __name__ == "__main__":
 			H = float(curVal)
 		elif curArg in ("-R", "--outer_radius"):
 			R = float(curVal)
-	
 	mesh = CylinderMesh(Lf, Lw, H, R)
+	with open('blockMeshDict','w') as f:
+		sys.stdout = f
+		mesh.print()
