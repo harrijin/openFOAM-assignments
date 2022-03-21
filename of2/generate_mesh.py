@@ -208,11 +208,11 @@ boundary
 						grading[0] = corners_y_grading
 						num_cells[0] = n_corner_blocks_y
 						if i == 10:
-							vertices = [9, 19, 20,10]
+							vertices = [10, 20, 19, 9]
 						elif i == 11:
 							vertices = [10, 20, 21, 11]
 						elif i == 16:
-							vertices = [13, 27, 28, 14]
+							vertices = [14, 28, 27, 13]
 						else: # i == 17
 							vertices = [14, 28, 29, 15]
 					else: # "Horizontal" blocks
@@ -222,12 +222,12 @@ boundary
 							if i == 8:
 								vertices = [8, 16, 17, 9]
 							else: # i == 19
-								vertices = [15, 31, 16, 8]
+								vertices = [8, 16, 31, 15]
 						else:
 							grading[0] = front_grading_x
 							num_cells[0] = n_front_corners_x
 							if i == 13:
-								vertices = [11, 23, 24, 12]
+								vertices = [12, 24, 23, 11]
 							else: # i == 14
 								vertices = [12, 24, 25, 13]
 			# Add second set of vertices
