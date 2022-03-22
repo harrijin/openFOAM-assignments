@@ -1,0 +1,8 @@
+/work2/07673/harrijin/stampede2/openFOAM-assignments/of2/circular-cylinder
+Tue Mar 22 14:45:24 CDT 2022
+Running blockMesh on /work2/07673/harrijin/stampede2/openFOAM-assignments/of2/circular-cylinder
+Running checkMesh on /work2/07673/harrijin/stampede2/openFOAM-assignments/of2/circular-cylinder
+Running decomposePar on /work2/07673/harrijin/stampede2/openFOAM-assignments/of2/circular-cylinder
+Running icoFoam in parallel on /work2/07673/harrijin/stampede2/openFOAM-assignments/of2/circular-cylinder using 16 processes
+Running reconstructPar on /work2/07673/harrijin/stampede2/openFOAM-assignments/of2/circular-cylinder
+Tue Mar 22 15:39:33 CDT 2022
