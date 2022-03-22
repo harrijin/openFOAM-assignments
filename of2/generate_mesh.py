@@ -167,14 +167,14 @@ boundary
 
 	def init_blocks(self):
 		# for circular portion: x1 = radial, x2 = tangential
-		n_radial = 10
+		n_radial = 15
 		n_tangential = 20
 		n_z = 1
 		n_corner_blocks_y = 30
 		n_front_corners_x = 15
-		n_wake_corners_x = 30
+		n_wake_corners_x = 50
 		# grading
-		radial_grading = 2
+		radial_grading = 3
 		tangential_grading = 1
 		z_grading = 1
 		corners_y_grading = 4
