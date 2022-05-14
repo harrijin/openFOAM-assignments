@@ -1,0 +1,6 @@
+/work2/07673/harrijin/stampede2/openFOAM-assignments/of3/mach-3-wind-tunnel-with-step
+Sat May 14 13:45:30 CDT 2022
+Running blockMesh on /work2/07673/harrijin/stampede2/openFOAM-assignments/of3/mach-3-wind-tunnel-with-step
+Running checkMesh on /work2/07673/harrijin/stampede2/openFOAM-assignments/of3/mach-3-wind-tunnel-with-step
+Running rhoCentralFoam on /work2/07673/harrijin/stampede2/openFOAM-assignments/of3/mach-3-wind-tunnel-with-step
+Sat May 14 13:53:55 CDT 2022
